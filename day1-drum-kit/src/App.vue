@@ -1,15 +1,13 @@
 <template>
   <div id="app">
-    <h1>Hello All</h1>
+    <h1 class="heading--1">JS30 - Day 1: Drum Kit</h1>
     <div class="button__container">
-        <BaseButton v-for="button in buttons" :letter="button.key" v-on:clicked-me="playSound" />
+        <BaseButton v-for="button in buttons" :letter="button.key" :id="button.key" v-on:clicked-me="playSound" />
     </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-
 export default {
   name: 'app',
   data : function(){
@@ -24,7 +22,8 @@ export default {
         { key :'z' , sound : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/909-clap-vh.mp3'} ,
         { key :'x' , sound : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/909-clap-vm.mp3'} ,
         { key :'c' , sound : 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/969699/909-clap-vl.mp3'}
-      ]
+      ],
+      nodeList : []
     }
   },
   methods : {
@@ -34,6 +33,13 @@ export default {
       playMe[0].audio.currentTime = 0;
       playMe[0].audio.play();
       }
+    },
+    simulatePress(key){
+      for(let el of this.nodeList){
+        if(el.id == key){
+          el.click()
+        }
+      }
     }
   },
   mounted : function(){
@@ -42,10 +48,14 @@ export default {
       window.addEventListener("keypress", function(e) {
       let key = String.fromCharCode(e.keyCode).toLowerCase()
       this.playSound(key)
+      this.simulatePress(key)
     }.bind(this));
     // Add audio elements to the buttons JS only
     this.buttons.forEach(button => button.audio = new Audio(button.sound));
-  })
+    // Get all buttons from DOM so we can simulate presses
+    this.nodeList = document.querySelectorAll('button')
+
+    })
   }
 };
 </script>
@@ -66,6 +76,17 @@ body {
   background-image: linear-gradient(to top, rgba(255,175,189, .3), rgba(255,195,159, .3)), url(https://source.unsplash.com/nPz8akkUmDI/1600x900);
 }
 
+h1 {
+  background: rgba(0, 0, 0, 0.15);
+  display: inline-block;
+  padding: 1rem;
+  border-radius: 5px;
+  color: rgb(167,184,191);
+  text-shadow: -5px 5px 3px rgba(0, 0, 0, 0.25);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
 #app {
   max-width: 800px;
   margin: auto;
@@ -74,7 +95,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 
 .button__container {
