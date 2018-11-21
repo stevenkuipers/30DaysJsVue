@@ -1,0 +1,65 @@
+
+html {
+  min-height: 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  box-sizing: inherit;
+  min-height: 100%;
+}
+
+#app {
+  max-width: 800px;
+  margin: auto;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 30px;
+}
+
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background: #FF8901;
+  background: radial-gradient(#FF8901, #FF8901 40%, #E2CC07 41%, #E2CC07 55%, #f12711 56%, #f12711 100%);
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 1.5rem;
+  box-shadow: -2px -2px 10px 1px rgba(0,0,0,0.25);
+}
+
+.clock__logo {
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.clock__hand {
+  width: 85px;
+  height: 6px;
+  background: #68ce63;
+  transform-origin: left;
+  position: absolute;
+  top: calc(50% - 3px);
+  left: 50%;
+  border-radius: 3px;
+  box-shadow: -4px -1px 10px 1px rgba(0,0,0,0.25);
+}
+
+.clock__hand--hour {
+  width: 55px;
+}
+.clock__hand--minute {
+  width: 75px;
+}
+.clock__hand--second {
+  width: 98px;
+}
