@@ -33,8 +33,8 @@ input {
   font-size: 1.5rem;
   font-weight: 200;
   border-radius: 3px;
-  border: 4px solid steelblue;
-  background-color: rgba(100, 100, 100, .23);
+  border: 4px solid #F6F7F9;
+  background-color: #FFFFFF;
 }
 
 input:focus {

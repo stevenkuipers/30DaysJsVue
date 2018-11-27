@@ -50,13 +50,22 @@ export default {
   margin: auto;
 }
 
-.list-enter-active, .list-leave-active {
-  transition: all .25s;
-  height: 100%;
+.list-enter-active {
+  opacity: 1;
+  transition: all .35s;
+  transform-origin: top;
+  transform: scaleY(1);
 }
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-  opacity: 0.4;
-  height: 0;
+.list-enter /* .list-leave-active below version 2.1.8 */ {
+  transform: scaleY(0);
+}
+
+.list-leave-active {
+  transition: opacity .4s;
+}
+
+.list-leave-to {
+  opacity: 0;
 }
 
 </style>

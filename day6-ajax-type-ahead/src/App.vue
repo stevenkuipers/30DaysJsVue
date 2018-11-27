@@ -31,6 +31,7 @@ export default {
 <style lang="scss">
 
 html {
+  min-height: 100.1vh;
   font-size: 62.5%;
   box-sizing: border-box;
 }
@@ -39,6 +40,7 @@ html {
 }
 
 body {
+    background-color: #FEC52E;
   font-size: 2.6rem;
   margin: 0;
   padding: 0;
@@ -51,6 +53,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  padding-top: 60px;
 }
 </style>
